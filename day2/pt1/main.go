@@ -78,6 +78,11 @@ func safe(report []int) bool {
 		return false
 	}
 
+	// Solution:
+	// Use a sliding window of 2 elements, determine if the difference between the 2
+	// elements is within the valid range (1,2,3). Then determine if there is a change
+	// in difference direction (increase vs decrease) compared to the initial direction
+	// of the first 2 elements. If all of those checks pass, the report is considered safe
 	increasing := initial > 0
 	for i := 0; i < len(report)-1; i++ {
 		diff := report[i+1] - report[i]
